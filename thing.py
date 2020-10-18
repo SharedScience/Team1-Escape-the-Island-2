@@ -35,9 +35,8 @@ class Thing:
     if verb in self.commands:
       self.commands[verb](word_list, player, place, in_inventory)
     else:
-      print("You can't {} the {}".format(verb, self.name))
+      print(f"You can't {verb} the {self.name}")
 
-class Things(Thing):
   def combine_things(self, word_list, player, in_inventory, valid_others):
     if not in_inventory:
       print("You're not holding the", self.get_name())
@@ -62,6 +61,11 @@ class Things(Thing):
       other = player.get_in_inventory(othername)
       if other != None and other.get_name() in valid_others:
         return other
+      other = player.get_place().get_item(othername)
+      
+      if other != None and other.get_name() in valid_others:   
+        return other
+      
       other = player.get_place().get_connection(othername)
       if other != None and other[0].get_name() in valid_others:
         return other[0]
@@ -75,38 +79,3 @@ class Things(Thing):
   # Called when a thing is removed from the player's inventory
   def dropped(self, player, place):
     pass
-
-class Special_Things(Thing):
-  def combine_things(self, word_list, player, in_inventory, valid_others):
-    if len(word_list) < 3:
-      print('Combine the {} with what?'.format(self.get_name()))
-    else:
-      othername = word_list[2]
-      other = player.get_in_inventory(othername)
-      elif other.get_name() in valid_others:
-        return other
-    return None
-
-  def use_together(self, word_list, player, in_inventory, valid_others):
-    if len(word_list) < 3:
-      print(f'Use the {self.get_name()} with what?')
-    else:
-      othername = word_list[2]
-      other = player.get_in_inventory(othername)
-      if other != None and other.get_name() in valid_others:
-        return other
-      other = player.get_place().get_connection(othername)
-      if other != None and other[0].get_name() in valid_others:
-        return other[0]
-      print(f"You're not holding the {othername}")
-    return None
-
-  # Called when a thing is added to the player's inventory
-  def taken(self, player, place):
-    pass
-
-  # Called when a thing is removed from the player's inventory
-  def dropped(self, player, place):
-    pass
-
-

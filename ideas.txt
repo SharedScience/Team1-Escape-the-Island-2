@@ -1,12 +1,14 @@
 Things to do:
 
-- fix combinding water and sailboat
+fix picking up the water, sailboat,bucket and waterfilter and fix the path and bottle 
 
-- Split water into two different things when you pick it up
 
-- If they don't use the waterfilter there health will go down
+For the water we want the object to be splited into two diferent things so they have 2 waters in there inventory but they can only see one. For the first water we wan't it to combine with the bucket and they can go to the forest and use that water to remove the fire. For the second water we want it to combine with the waterfilter and then they can use the waterfilter and drink the water. 
+So what we need to do is split the water make the water work in the fire and fix the combines.
 
-- Make it so when the game starts all the commands show
+Add comments 
+
+Make it so when the game starts all the commands show
 
 ~ Add new ideas whenever you come up with them.
 ~ We have to finish all of these before Sunday
@@ -17,13 +19,11 @@ Notes from Terry:
 - When you make changes.  Always finish a whole change and test it before moving on.  I see a lot of places where you have half-finished changes that won't work.  But you didn't notice because you didn't finish it and test it before going to work on something else.
 - I'm not sure how the water, bottle, and water filter are supposed to work together.  Try writing it down in English first and then we can make sure the code does what you want.
 
-For the watr we want the object to be splited into two diferent things so they have 2 waters in there inventory but they can only see one. For the first water we wan't it to combine with the bucket and they can go to the campground and use that water to remove the fire. For the second water we want it to combine with the waterfilter and then they can use the waterfilter and drink the water. 
-So what we need to do is split the water make the water work in the fire and fix the combines.
-
 Done:
-- The map is broken.  Example: there are 2 copies of the forest, 'north' connection.
+- The map is broken.  Example: there are 2 copies of the forest, 'north' connection. 
 - In the fire they have to put out the fire, with the water they pick up, and fill it in the bucket.
 - If they go to the chamber they die
 - Fire can behave kind of like a Door.  It blocks the path in a certain direction.  Once you put out the fire, the path is no longer blocked.  I wouldn't just use a differently named Door since it's weird to "unlock" fire.  So you'll need to make a new Fire(Path) that has the right behavior.
 - Hannah made the Fire, but now we have to figure out how to make water work on the path. Maybe something like "use bucket west".  If the bucket has water in it, then it'll work on the fire.  I can try and get that going tomorrow.
 - In place.py line 43, the string says "You can take".  But this is misleading because you can't take everything listed there.  The original text was "You can see".  Try to pick some words more like that.
+

@@ -2,12 +2,9 @@
 
 # A regular Path is always passable
 class Path:
-  def get_name(self):
-    return 'path'
-  
   def is_passable(self):
     return True
-
+  
   def why_blocked(self):
     return 'not blocked'
 
@@ -20,16 +17,16 @@ class Fire(Path):
     if self.is_burning:
       return 'fire'
     else:
-      return 'path'
+      return self.direction
 
   def is_passable(self):
     return not self.is_burning 
 
   def why_blocked(self):
     if self.is_burning:
-      return 'The fire is blocking the path. Use water to put out the fire.'
+      return 'The fire is too big and blocking the path east. Use water to put out the fire.'
     else:
-      return 'The fire is not blocking the path.'
+      return 'The fire is not blocking east anymore. Now you can go east by typing east.'
   
   def put_out(self):
     print('You put out the fire')
@@ -60,7 +57,7 @@ class Door(Path):
     elif self.is_open:
       return f'The {self.name} is open.'
     else:
-      return f'The {self.name} is closed. Open it first by typing "open {self.direction}".'
+      return f'The {self.name} is closed. Open it first by typing "open {self.name}".'
 
   def open(self):
     if not self.is_locked:

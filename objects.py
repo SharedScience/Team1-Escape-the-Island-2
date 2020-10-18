@@ -1,7 +1,6 @@
 # all the functional objects in the game
 
 from thing import Thing
-from thing import Special_Things
 # Use the example of Flashlight and Battery to see how to add behaviors.
 
 # The Flashlight starts out dead.  It needs a new battery.
@@ -119,23 +118,23 @@ class Bottle(Thing):
     self.state = 'full'
 
 
-class Water(Special_Things):
+class Water(Thing):
   def __init__(self):
     # Call the init of the base Thing to set the name and description
-    super().__init__('water', 'lots of water from the ocean')
+    super().__init__('water', 'lots of water from the ocean',False)
   
   # This combine is very much like the one in Flashlight, but self and other are swapped
   def combine(self, word_list, player, place, in_inventory):
     other = self.combine_things(word_list, player,
-    in_inventory, {'waterfilter'},{'bucket'})
+    in_inventory, {'waterfilter', 'bucket'})
     
     if other != None:
       other.add_water()
 
-class Sailboat(Special_Things):
+class Sailboat(Thing):
   def __init__(self):
     # Call the init of the base Thing to set the name and description
-    super().__init__('sailboat', 'a sailboat')
+    super().__init__('sailboat', 'a sailboat',False)
     self.state = 'without a sail' # start out dead
 
   # What happens when we 'use' the Flashlight depends on its state.
@@ -224,8 +223,8 @@ class Waterfilter(Thing):
   #  - If you use a dead Flashlight, it stays dead
   #  - If you use a good Flashlight, it will toggle on and off
   on_use = {
-    'empty': ('The waterfilter is empty fill it up by combining it with water', 'empty'),
-    'full': ('You used the waterfilter. Now the water is clean and drinkable.', 'empty'),
+    'empty': ('The waterfilter is empty. Fill it up by combining it with water', 'empty'),
+    'full': ('You drank the water.', 'empty'),
     }
 
   # When we examine the Flashlight, describe it, but also show what state it's in
@@ -255,7 +254,7 @@ class Waterfilter(Thing):
   # When putting a battery in the Flashlight, it changes from dead to off.
   # This is used when changing a dead Flashlight into a working one.
   def new_water(self):
-    print('You poured the water into the waterfilter')
+    print('You poured water into the waterfilter. Now the water is clean.')
     self.state = 'full'
 
 

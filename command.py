@@ -41,21 +41,21 @@ class Command:
     # Display the list of valid commands
     def help(self):
         utils.type_quick([
-          'Type any of the following command words when needed:',
-          'help (gets a list of all the commands you can use  in the game)',
-          'quit (ends the game)', 
-          'look (gives more details on where you are)',
-          'inventory (shows all the objects you have)',
-          'health (shows your health)',
-          'north, south, east, west (directions you can go)',
-          'examine [thing] (gives details about the thing you chose to examine.)',
-          'take [thing] (you can pick up a thing)',
-          'use [thing] (you can use a thing)',
-          'drop [thing] (you can drop a thing)',
-          'combine [thing1] [thing2] (you can combine two things to make them work together)',
-          'open [direction] (you can open any door that is closed)',
-          'close [direction] (you can close any door that is opened)',
-          'unlock [direction] with [key] (you can unlock a door that is locked)'
+            'Type any of the following command words when needed:',
+            'help (gets a list of all the commands you can use  in the game)',
+            'quit (ends the game)',
+            'look (gives more details on where you are)',
+            'inventory (shows all the objects you have)',
+            'health (shows your health)',
+            'north, south, east, west (directions you can go)',
+            'examine [thing] (gives details about the thing you chose to examine.)',
+            'take [thing] (you can pick up a thing)',
+            'use [thing] (you can use a thing)',
+            'drop [thing] (you can drop a thing)',
+            'combine [thing1] [thing2] (you can combine two things to make them work together)',
+            'open [direction] (you can open any door that is closed)',
+            'close [direction] (you can close any door that is opened)',
+            'unlock [direction] with [key] (you can unlock a door that is locked)'
         ])
 
     # Display the full description of the current location even the player has been there before

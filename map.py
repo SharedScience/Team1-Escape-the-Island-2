@@ -5,28 +5,11 @@ from path import Path, Door, Fire, connect
 from objects import *
 
 
-# For non-functional objects
-# Thing(name, description)
-# Example: Thing('rock', 'just a rock')
-
-# Define functional objects in objects.py
-# Example: Flashlight needs to turn on and off, so it is a functional object
-
-
-#
-# Step 1: make all the Places
-#
-
-# Place(name, description, contents, paths)
-# - name is a string
-# - description is a string list
-# - contents is a set.  It can be the empty set: set()
-
 land = Place(
 'plain boring land', 
 'It is boiling hot, and feels like you are being cooked', 
 'You can hear nothing but silence, which is probably because you are the only one on the island',
-'You can smell some lovely flowers and other plants that are around you. Dont get bored!',
+'You see a path up to a volcano ahead of you, and a beach west from you and forest on east of you.',
 set())
 
 beach = Place(
@@ -34,7 +17,7 @@ beach = Place(
 'It is very windy, but still scorching!',
 'You can hear the wind whistling, and ruffling up your clothes.',
 'You can smell lots of saltiness throughout the beach. Watch out!', 
-{Thing('seashell','A strange shaped blue seashell',True)})
+{Thing('seashell','A strange shaped blue seashell',True),Bucket()})
 
 ocean = Place(
 'the ocean.',
@@ -107,7 +90,7 @@ bathroom = Place(
 'You see puddles of water on the floor. Looks like someone made a big mess!',
 'You can hear the tap running, which either means someone was recently there, or lots of water was wasted.',
 'You can see drops of blood in the bathtub.',
-{Bucket()})
+set())
 
 bedroom = Place(
 'a very tiny bedroom',
@@ -148,6 +131,6 @@ connect(cave, 'north', Door('door',False,True,'seashell'),'south', room)
 
 connect(beach,'north',Door('door',False,True,'key'),'south',cottage)
 connect(cottage,'north',Door(),'south',living_room)
-connect(living_room,'east',Door(),'west',kitchen)
-connect(kitchen, 'north', Door(), 'south', bathroom)
-connect(bathroom,'west',Door('door',False,True,'key'),'east',bedroom)
+connect(living_room,'north-east',Door(),'south-west',kitchen)
+connect(kitchen, 'north', Door(), 'south', living_room)
+connect(bathroom,'north-east',Door('door',False,True,'key'),'south-west',bedroom)

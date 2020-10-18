@@ -44,4 +44,4 @@ def type_quick(text):
   typewriter(text, 0.0, 0.0)
 
 def type_slow(text):
-  typewriter(text, 0.10, 0.5)
+  typewriter(text, 0.1, 0.5)
