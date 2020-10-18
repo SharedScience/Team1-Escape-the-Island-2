@@ -29,7 +29,6 @@ while (player.is_alive()):
   place = player.get_place()
   place.describe()
   place.action(player)
-
   if player.is_alive():
     # prompt for command
     command = Command(player, "> ")

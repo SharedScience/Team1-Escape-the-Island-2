@@ -6,6 +6,7 @@ Things to do:
 
 - If they don't use the waterfilter there health will go down
 
+- Make it so when the game starts all the commands show
 
 ~ Add new ideas whenever you come up with them.
 ~ We have to finish all of these before Sunday
