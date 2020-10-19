@@ -1,14 +1,8 @@
 Things to do:
 
-fix picking up the water, sailboat,bucket and waterfilter and fix the path and bottle 
-
-
-For the water we want the object to be splited into two diferent things so they have 2 waters in there inventory but they can only see one. For the first water we wan't it to combine with the bucket and they can go to the forest and use that water to remove the fire. For the second water we want it to combine with the waterfilter and then they can use the waterfilter and drink the water. 
-So what we need to do is split the water make the water work in the fire and fix the combines.
-
-Add comments 
-
 Make it so when the game starts all the commands show
+
+make the game so you can type combine water bucket and other things like that
 
 ~ Add new ideas whenever you come up with them.
 ~ We have to finish all of these before Sunday

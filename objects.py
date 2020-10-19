@@ -71,53 +71,6 @@ class Battery(Thing):
       other.new_battery()
       player.remove_from_inventory(self)
 
-
-
-class Bottle(Thing):
-  def __init__(self):
-    # Call the init of the base Thing to set the name and description
-    super().__init__('bottle', 'an empty bottle', True)
-    self.state = 'empty' # start out dead
-
-  # What happens when we 'use' the Flashlight depends on its state.
-  # This dictionary lists what to print and the new state.
-  # Examples:
-  #  - If you use a dead Flashlight, it stays dead
-  #  - If you use a good Flashlight, it will toggle on and off
-  on_use = {
-    'empty': ('The bottle is empty. Combine it with the water to fill it up.', 'empty'),
-    'full': ('You drank the water.', 'empty'),
-  }
-
-  # When we examine the Flashlight, describe it, but also show what state it's in
-  def examine(self, word_list, player, place, in_inventory):
-    print(self.description)
-    print('The bottle is', self.state)
-
-  # When we use the Flashlight, make sure we're holding it first.
-  # Then use the on_use dictionary to figure out what happens.
-  def use(self, word_list, player, place, in_inventory):
-    if not in_inventory:
-      print("You're not holding the bottle. Try [take bottle]")
-    else:
-      action = self.on_use[self.state]
-      print(action[0])
-      self.state = action[1]
-
-  # When we combine the Flashlight with something else, make sure that's a legal action.
-  # The only thing we can combine the Flashlight with is the battery.
-  # If the other thing is the battery, then make the Flashlight work and hide the battery.
-  def combine(self, word_list, player, place, in_inventory):
-    other = self.combine_things(word_list, player,
-    in_inventory, {'water'})
-    if other != None:
-      self.add_water()
-
-  def add_water(self):
-    print('The bottle is full')
-    self.state = 'full'
-
-
 class Water(Thing):
   def __init__(self):
     # Call the init of the base Thing to set the name and description
@@ -317,7 +270,6 @@ class Person(Thing):
 
   def examine(self, word_list, player, place, in_inventory):
     print(self.description)
-    print('The person is', self.state)
 
 
 class Lava(Thing):

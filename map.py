@@ -13,10 +13,10 @@ land = Place(
 set())
 
 beach = Place(
-'a beach with lots of sand and powerful waves', 
+'a beach with lots of sand and strong waves', 
 'It is very windy, but still scorching!',
 'You can hear the wind whistling, and ruffling up your clothes.',
-'You can smell lots of saltiness throughout the beach. Watch out!', 
+'A large wave crashes onto you, and you almost get sucked up. Watch out!', 
 {Thing('seashell','A strange shaped blue seashell',True),Bucket()})
 
 ocean = Place(
@@ -30,20 +30,20 @@ cave = Place(
 'a dark cave.',
 'You can barely see anything, since it is pitch black',
 'It is very cool inside, and your teeth start chattering.',
-'You can hear some insects chirping, and a few animals moving. Beware!',
+'You hear bats screeching, and echoing, echo echo echo... Beware!',
 {Flashlight()})
 
 room = Place(
 'a secret room in the cave, that no one knows of.',
 'There is a small spark of light.',
 'It is a decent temperature, not cold enough to shiver.',
-'You can hear crickets creeking',
+'You can hear crickets chirping',
 {Thing('key','an old rusty key',True)})
 
 
 volcano = Place(
 'a huge erupting volcano',
-'There is lots of molten lava and rocks falling as you are reading this',
+'You see lots of molten lava and rocks falling as you are reading this',
 'It is very hot, as there is lava close by.',
 'You can hear the lava in the volcano bubbling like a stew. Beware! It can erupt any time!',
 {Battery()})
@@ -83,7 +83,7 @@ kitchen = Place(
 'You see lots of food, some of it being rotten',
 'You can hear flies buzzing and hovering over the food',
 'You smell lots of food.',
-{Bottle()})
+set())
 
 bathroom = Place(
 'a very smelly bathroom',
@@ -131,6 +131,5 @@ connect(cave, 'north', Door('door',False,True,'seashell'),'south', room)
 
 connect(beach,'north',Door('door',False,True,'key'),'south',cottage)
 connect(cottage,'north',Door(),'south',living_room)
-connect(living_room,'north-east',Door(),'south-west',kitchen)
 connect(kitchen, 'north', Door(), 'south', living_room)
 connect(bathroom,'north-east',Door('door',False,True,'key'),'south-west',bedroom)

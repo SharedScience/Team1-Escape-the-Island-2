@@ -44,11 +44,21 @@ class Thing:
       print('Combine the {} with what?'.format(self.get_name()))
     else:
       othername = word_list[2]
+      
       other = player.get_in_inventory(othername)
-      if other == None:
-        print("You're not holding the", othername)
-      elif other.get_name() in valid_others:
+      if other != None and other.get_name() in valid_others:
         return other
+
+      other = player.get_place().get_item(othername)
+      #print(f"other:{other}  valid_other:{valid_others}")
+      if other != None and other.get_name() in valid_others:   
+        return other
+      '''
+      other = player.get_place().get_connection(othername)
+      if other != None and other[0].get_name() in valid_others:
+        return other[0]
+      '''
+      print(f"You're not holding the {othername}")
     return None
 
   def use_together(self, word_list, player, in_inventory, valid_others):
@@ -58,11 +68,13 @@ class Thing:
       print(f'Use the {self.get_name()} with what?')
     else:
       othername = word_list[2]
+
       other = player.get_in_inventory(othername)
       if other != None and other.get_name() in valid_others:
         return other
+
       other = player.get_place().get_item(othername)
-      
+      #print(f"other:{other}  valid_other:{valid_others}")
       if other != None and other.get_name() in valid_others:   
         return other
       

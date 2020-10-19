@@ -60,23 +60,23 @@ class Door(Path):
     elif self.is_open:
       return f'The {self.name} is open.'
     else:
-      return f'The {self.name} is closed. Open it first by typing "open {self.direction}".'
+      return f'The {self.name} is closed. Open it first by typing "open direction".'
 
   def open(self):
     if not self.is_locked:
       self.is_open = True
-      print(f'{self.name} opened now you can go inside by typing "{self.direction}"')
+      print(f'{self.name} opened now you can go inside by typing "direction"')
     else:
       print(self.why_blocked())
 
   def close(self):
     self.is_open = False
-    print(f'You closed the {self.name}. Open it next time you want to go inside by typing "open {self.direction}" ')
+    print(f'You closed the {self.name}. Open it next time you want to go inside by typing "open direction" ')
 
   def unlock(self, key):
     if self.key == key:
       self.is_locked = False
-      print(f'You unlocked the {self.name} now you can open it by typing "open {self.direction}"')
+      print(f'You unlocked the {self.name} now you can open it by typing "open direction"')
     else:
       print('Wrong key. Try again')
 
