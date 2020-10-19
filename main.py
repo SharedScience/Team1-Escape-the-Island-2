@@ -1,3 +1,5 @@
+# testing gitignore
+
 # The game starts here.  This is the home of the main game loop.
 
 from command import Command
